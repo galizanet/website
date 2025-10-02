@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GalizaNET - A Internet que Funciona</title>
+  <title>GalizaNET — A Internet que Funciona</title>
   <meta name="description" content="GalizaNET: Internet confiável em Irecê e região. Conexão estável, atendimento humano e planos residenciais, empresariais e governamentais.">
   <style>
     :root{
       --primary:#0a1f44; --secondary:#ff6600; --accent:#0f5fff;
-      --light:#f7f8fb; --gray:#617184; --maxw:1200px;
+      --wa:#25D366; --light:#f7f8fb; --gray:#617184; --maxw:1200px;
       --radius:14px; --shadow:0 10px 30px rgba(10,31,68,.12);
     }
     *{box-sizing:border-box;margin:0;padding:0}
@@ -25,38 +25,34 @@
       background:repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 1px, transparent 1px 14px),
                  repeating-linear-gradient(65deg, rgba(255,255,255,.04) 0 1px, transparent 1px 18px);
       pointer-events:none; mix-blend-mode:screen;}
-
     .nav{position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px);
       background:rgba(10,31,68,.65); border-bottom:1px solid rgba(255,255,255,.12);}
     .nav .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 16px}
     .logo-nav, .logo-hero {
-      filter: drop-shadow(0 0 3px rgba(255,255,255,0.9))
-              drop-shadow(0 0 6px rgba(255,255,255,0.6));
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.9)) drop-shadow(0 0 6px rgba(255,255,255,0.6));
     }
-    .logo-nav { width: 180px; height: auto; }
-    .logo-hero { width: 260px; height: auto; margin-bottom: 14px; }
-    @media (min-width: 1024px){
-      .logo-nav { width: 200px; }
-      .logo-hero { width: 320px; }
-    }
-
+    .logo-nav { width: 200px; height: auto; }
+    .logo-hero { width: 320px; height: auto; margin-bottom: 10px; }
     .nav .cta{display:flex; gap:10px}
-    .btn, .btn-outline{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:800; letter-spacing:.3px; transition:.2s ease; white-space:nowrap}
+    .btn, .btn-outline{display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border-radius:12px; font-weight:800; letter-spacing:.3px; transition:.2s ease; white-space:nowrap}
     .btn{background:var(--secondary); color:#fff; box-shadow:0 6px 18px rgba(255,102,0,.35)}
     .btn:hover{filter:brightness(.92)}
     .btn-outline{border:2px solid #fff; color:#fff}
     .btn-outline:hover{background:#ffffff12}
-    .btn-ghost{display:inline-block; padding:10px 14px; border-radius:10px; font-weight:800; color:var(--secondary); background:#fff}
-
-    .hero .content{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; padding:34px 0 44px}
+    .btn-ghost{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; font-weight:800; color:var(--secondary); background:#fff}
+    .btn-wa{background:var(--wa); color:#0b2816; box-shadow:0 6px 18px rgba(37,211,102,.35)}
+    .btn-wa:hover{filter:brightness(.95)}
+    .wa svg{width:18px;height:18px}
+    .hero .content{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; padding:30px 0 42px}
     .hero h1{font-size:38px; line-height:1.15}
     .hero p{opacity:.95; margin-top:8px}
-    .hero .primary-cta{margin-top:18px}
-    .hero .badges{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .hero .primary-cta{margin-top:14px}
+    .hero .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .badge{background:#ffffff1e; border:1px solid #ffffff3a; padding:8px 12px; border-radius:999px; font-weight:700}
+    .micro-proof{margin-top:10px; font-weight:700; opacity:.9}
 
     /* CARROSSEL */
-    .carousel{margin:-24px auto 24px; position:relative}
+    .carousel{margin:-8px auto 24px; position:relative}
     .slider{position:relative; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow)}
     .slides{display:flex; transition:transform .6s ease}
     .slide{min-width:100%; height:380px; position:relative; color:#fff; display:flex; align-items:flex-end; padding:20px;
@@ -72,7 +68,7 @@
     .arrow{width:42px; height:42px; border-radius:50%; background:#ffffffb0; display:grid; place-items:center; cursor:pointer}
     .arrow:hover{background:#fff}
 
-    section{margin:36px 0}
+    section{margin:42px 0}
     .grid{display:grid; gap:16px}
     .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .card{background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
@@ -95,23 +91,18 @@
     /* Mascote painel direito */
     .mascot-wrap{position:relative; display:grid; grid-template-columns:1fr; place-items:center; padding-top:20px}
     .mascot-img{max-width:320px; width:100%; height:auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.12))}
-    .mascot-bubble{
-      position:relative; background:#ffffff; border:2px solid #ffe1d0;
-      box-shadow:var(--shadow); border-radius:14px; padding:14px; margin-bottom:12px;
-    }
-    .mascot-bubble .tail{
-      position:absolute; bottom:-12px; left:28px; width:0; height:0;
+    .mascot-bubble{position:relative; background:#ffffff; border:2px solid #ffe1d0;
+      box-shadow:var(--shadow); border-radius:14px; padding:14px; margin-bottom:12px;}
+    .mascot-bubble .tail{position:absolute; bottom:-12px; left:28px; width:0; height:0;
       border-left:12px solid transparent; border-right:12px solid transparent;
-      border-top:12px solid #ffffff;
-      filter: drop-shadow(0 -2px 0 #ffe1d0);
-    }
+      border-top:12px solid #ffffff; filter: drop-shadow(0 -2px 0 #ffe1d0);}
     .mascot-bubble p{margin:0 0 10px 0; color:var(--primary)}
     .mascot-actions{display:flex; gap:10px; flex-wrap:wrap}
 
     /* Testimonials & trust */
     .testimonials blockquote{background:#fff; border-left:5px solid var(--secondary); padding:14px 16px; border-radius:8px; font-style:italic}
     .testimonials span{display:block; margin-top:6px; font-weight:800; color:var(--primary)}
-    .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(400px,1fr)); gap:20px; align-items:center; justify-items:center}
+    .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:18px; align-items:center; justify-items:center}
     .trust-logos img{max-height:44px; filter:grayscale(10%); opacity:.95}
 
     /* ASSINE */
@@ -155,13 +146,53 @@
       .mobile-cta{display:flex}
       .floating-mascot{display:flex}
     }
-    /* WhatsApp icon + button accent */
-    .wa { display:inline-flex; align-items:center; gap:8px }
-    .wa svg { width:18px; height:18px }
-    .btn-wa { background:#25D366; color:#0b2816; box-shadow:0 6px 18px rgba(37,211,102,.35) }
-    .btn-wa:hover{ filter:brightness(.95) }
-    .btn-outline-wa{ border:2px solid #25D366; color:#25D366; background:#fff }
-    .btn-outline-wa:hover{ background:#dff7e9 }
+    /* ===== PLANOS ===== */
+.plans{border-radius:var(--radius); box-shadow:var(--shadow); background:#fff; padding:18px}
+.plans-head{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
+.plans-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px}
+.plans-tab{
+  padding:10px 14px; border-radius:999px; border:1.5px solid #e6ebf2;
+  background:#f7f8fb; color:var(--primary); font-weight:800; cursor:pointer
+}
+.plans-tab.active{background:#fff; border-color:var(--secondary); color:var(--secondary); box-shadow:var(--shadow)}
+
+.plans-carousel{position:relative; overflow:hidden}
+.plans-track{display:flex; gap:14px; transition:transform .45s ease}
+.plan-card{
+  min-width: calc(33.333% - 10px); background:#fff; border:1px solid #eef1f6; border-radius:16px; box-shadow:var(--shadow);
+  padding:16px; display:flex; flex-direction:column; justify-content:space-between
+}
+.plan-badge{display:inline-flex; gap:6px; align-items:center; padding:6px 10px; border-radius:999px; background:#f0f6ff; color:#0f5fff; font-weight:800; font-size:12px}
+.plan-name{font-size:18px; font-weight:900; margin-top:8px}
+.plan-speed{font-size:34px; font-weight:900; color:var(--secondary); line-height:1; margin:6px 0}
+.plan-note{font-size:12px; color:var(--gray)}
+.plan-list{margin:12px 0 14px 0; color:#223}
+.plan-list li{margin:6px 0; display:flex; gap:8px}
+.plan-list li::before{content:"✓"; color:#1a7f3e; font-weight:900}
+.plan-price{font-size:14px; color:var(--gray)}
+.plan-price strong{font-size:20px; color:var(--primary)}
+.plan-cta{display:flex; gap:8px; margin-top:10px}
+.plan-cta .btn{flex:1; justify-content:center}
+.plan-cta .btn-outline{border-color:#e6ebf2; color:var(--secondary); background:#fff}
+
+.plans-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:42px; height:42px; border-radius:50%; background:#ffffffd0; display:grid; place-items:center; cursor:pointer; border:1px solid #e8edf5
+}
+.plans-arrow:hover{background:#fff}
+.plans-arrow.left{left:6px}
+.plans-arrow.right{right:6px}
+.plans-dots{display:flex; gap:8px; justify-content:center; margin-top:12px}
+.plans-dot{width:11px; height:11px; border-radius:50%; background:#dfe6f2; border:1px solid #cad4e3; cursor:pointer}
+.plans-dot.active{background:var(--secondary); border-color:var(--secondary)}
+
+@media (max-width:1024px){
+  .plan-card{min-width: calc(50% - 8px)}
+}
+@media (max-width:720px){
+  .plan-card{min-width: 100%}
+}
+
   </style>
 </head>
 <body>
@@ -169,14 +200,16 @@
   <!-- NAV -->
   <div class="nav">
     <div class="wrap bar">
-      <a href="#"><img src="imagens/logo@2x.png" alt="GalizaNET" class="logo-nav"></a>
+      <a href="#"><img src="imagens/logo@2x.png" alt="GalizaNET" class="logo-nav" loading="eager"></a>
       <div class="cta">
         <a class="btn-outline" href="#cobertura">Cobertura</a>
         <a class="btn btn-wa wa" id="navAssinar" href="#" rel="noopener">
-  <!-- ícone WA -->
-  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
-  Assinar via WhatsApp
-</a>
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/>
+            <path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/>
+          </svg>
+          Assinar no WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -186,24 +219,28 @@
     <div class="wrap">
       <div class="content">
         <div>
-          <img src="imagens/logo@3x.png" alt="GalizaNET" class="logo-hero">
+          <img src="imagens/logo@3x.png" alt="GalizaNET" class="logo-hero" loading="eager">
           <h1>A internet que funciona de verdade em Irecê e região</h1>
           <p>Chega de promessas. Conexão estável + atendimento humano para trabalhar, estudar, jogar e maratonar sem travar.</p>
           <div class="primary-cta">
             <a class="btn btn-wa wa" id="heroAssinar" href="#" rel="noopener">
-  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
-  👉 Fale agora conosco via WhatsApp
-</a>
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/>
+                <path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/>
+              </svg>
+              👉 Quero assinar no WhatsApp
+            </a>
           </div>
           <div class="badges">
             <span class="badge">Instalação rápida</span>
             <span class="badge">Suporte local</span>
             <span class="badge">Garantia real</span>
           </div>
+          <div class="micro-proof">+5.000 clientes ativos na região • Nota média 4.8/5</div>
         </div>
 
         <!-- CARROSSEL -->
-        <section class="carousel">
+        <section class="carousel" aria-label="Destaques">
           <div class="slider" id="slider">
             <div class="slides" id="slides">
               <div class="slide" style="background-image:url('imagens/beneficio-internet.png')">
@@ -238,30 +275,64 @@
 
   <!-- BENEFÍCIOS + PLANOS -->
   <main class="wrap">
-    <section class="grid grid-3" aria-label="beneficios">
-      <!-- (imagens dos cards podem ser adicionadas via <picture> como orientado anteriormente) -->
+    <section id="beneficios" class="grid grid-3" aria-label="beneficios">
+      <!-- Internet Residencial -->
       <div class="card">
+        <picture>
+          <img src="imagens/internet-residencial.png" alt="Família usando Wi‑Fi potente em toda a casa" loading="lazy" style="border-radius:10px; margin-bottom:10px;">
+        </picture>
         <h3>🌐 Internet Residencial</h3>
-        <p class="muted">Wi-Fi potente para toda a casa, estabilidade e velocidade para a família.</p>
-      </div>
-      <div class="card">
-        <h3>🏢 Empresarial & Governo</h3>
-        <p class="muted">Conectividade confiável para operações críticas. Redes privadas quando precisar.</p>
-      </div>
-      <div class="card">
-        <h3>📺 Muito mais que Internet</h3>
-        <p class="muted">Pacotes com HBO Max, Paramount e telemedicina com <strong>Mediquo</strong>.</p>
+        <p class="muted">Wi‑Fi potente para toda a casa, estabilidade e velocidade para a família.</p>
       </div>
 
-      <div class="card" style="grid-column:1/-1; display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center">
-        <img src="imagens/planos-internet.png" alt="Planos de internet" style="border-radius:10px">
-        <div>
-          <h3>⚡ Ultra velocidades</h3>
-          <p class="muted">Nossos planos garantem a rapidez que você precisa no acesso — do básico ao turbo. Escolha o ideal e comece hoje.</p>
-          <div style="margin-top:10px"><a class="btn" href="#assine">Ver planos e assinar</a></div>
-        </div>
+      <!-- Empresarial & Governo -->
+      <div class="card">
+        <picture>
+          <img src="imagens/empresarial-governo.png" alt="Profissionais conectados com redes confiáveis" loading="lazy" style="border-radius:10px; margin-bottom:10px;">
+        </picture>
+        <h3>🏢 Empresarial & Governo</h3>
+        <p class="muted">Conectividade confiável para operações críticas. Redes privadas quando precisar.</p>
+
       </div>
-    </section>
+
+      <!-- Muito mais que Internet -->
+      <div class="card">
+        <picture>
+          <img src="imagens/muito-mais-que-internet.png" alt="Streaming e telemedicina online em casa" loading="lazy" style="border-radius:10px; margin-bottom:10px;">
+        </picture>
+        <h3>📺 Muito mais que Internet</h3>
+        <p class="muted">Pacotes com HBO Max, Paramount e telemedicina com <strong>Mediquo</strong>.</p>
+
+      </div>
+</section>
+
+      <!-- ===== PLANOS (Carrossel/Selector) ===== -->
+      <section id="planos" class="plans panel">
+        <div class="plans-head">
+          <h3>⚡ Planos e Combos</h3>
+          <p class="muted">Escolha de acordo com seu uso. O valor exato pode variar por cidade – confirmamos no WhatsApp.</p>
+        </div>
+
+        <div class="plans-tabs" role="tablist" aria-label="Tipos de oferta">
+          <button class="plans-tab active" data-tab="residencial" role="tab" aria-selected="true">Residencial</button>
+          <button class="plans-tab" data-tab="combo" role="tab" aria-selected="false">Combos</button>
+          <button class="plans-tab" data-tab="empresarial" role="tab" aria-selected="false">Empresas & Governo</button>
+        </div>
+
+        <!-- Carrossel -->
+        <div class="plans-carousel">
+          <button class="plans-arrow left" aria-label="Anterior">‹</button>
+          <div class="plans-track" id="plansTrack" aria-live="polite"></div>
+          <button class="plans-arrow right" aria-label="Próximo">›</button>
+        </div>
+
+        <div class="plans-dots" id="plansDots" aria-label="Navegação de planos"></div>
+
+        <div class="plans-foot">
+          <small class="tip">*Imagens ilustrativas. Consulte disponibilidade e condições na sua cidade.</small>
+        </div>
+      </section>
+
 
     <!-- COBERTURA -->
     <section id="cobertura" aria-labelledby="cobertura-title">
@@ -284,15 +355,18 @@
             </div>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
-              <a id="ctaCidade" class="btn btn-wa wa" href="#">💬 Assinar via WhatsApp</a>
-              <a id="ctaWhats" class="btn-ghost" href="#" target="_blank" rel="noopener">💬 Chame WhatsApp</a>
+              <a id="ctaCidade" class="btn btn-wa wa" href="#" target="_blank" rel="noopener">💬 Assinar via WhatsApp</a>
+              <a id="ctaWhats" class="btn-ghost wa" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/></svg>
+                WhatsApp
+              </a>
             </div>
           </div>
 
           <iframe id="map" class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de cobertura"></iframe>
         </div>
 
-        <!-- Painel do mascote (substitui o resumo) -->
+        <!-- Painel do mascote -->
         <div class="panel">
           <div class="inner mascot-wrap">
             <div class="mascot-bubble">
@@ -302,12 +376,14 @@
                 Posso te ajudar a instalar?
               </p>
               <div class="mascot-actions">
-                <a id="mascoteWhats" class="btn-ghost" target="_blank" rel="noopener">💬 WhatsApp</a>
-                <a class="btn btn-wa wa" id="mascoteAssinar" href="#" rel="noopener"> Assinar no WhatsApp</a>
+                <a id="mascoteWhats" class="btn-ghost wa" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/></svg>
+                  Falar agora com o atendimento da GalizaNET
+                </a>
               </div>
               <span class="tail"></span>
             </div>
-            <img src="imagens/mascote-roteador.png" alt="Mascote GalizaNET com roteador" class="mascot-img">
+            <img src="imagens/mascote-roteador.jpeg" alt="Mascote GalizaNET com roteador" class="mascot-img" loading="lazy">
           </div>
         </div>
       </div>
@@ -336,12 +412,10 @@
     <section class="trust">
       <h2 style="text-align:center; margin-bottom:12px;">Confiança e Qualidade</h2>
       <div class="trust-logos">
-        <img src="imagens/abrint-logo.png" alt="Empresa Associada ABRINT">
-        <img src="imagens/anatel-logo.png" alt="Empresa Autorizada Anatel">
-        <img src="imagens/hbomax.png" alt="HBO Max">
-        <img src="imagens/paramount.png" alt="Paramount">
-        <img src="imagens/mediquo.png" alt="Mediquo">
-        <img src="imagens/watch-logo.png" alt="Watch Brasil">
+        <img src="imagens/anatel.png" alt="Anatel" loading="lazy">
+        <img src="imagens/hbomax.png" alt="HBO Max" loading="lazy">
+        <img src="imagens/paramount.png" alt="Paramount" loading="lazy">
+        <img src="imagens/mediquo.png" alt="Mediquo" loading="lazy">
       </div>
     </section>
 
@@ -351,9 +425,9 @@
       <p>Escolha seu plano e faça parte da GalizaNET. Instalação rápida e suporte local.</p>
       <div class="cta-group">
         <a class="btn btn-wa wa" id="assineAssinar" href="#" rel="noopener">
-  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
-  Assinar agora pelo WhatsApp
-</a>
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/></svg>
+          Assinar agora pelo WhatsApp
+        </a>
         <a class="btn-outline" href="#cobertura">Ver cobertura</a>
       </div>
     </section>
@@ -396,8 +470,8 @@
           <textarea id="mensagem" name="mensagem" placeholder="Conte rapidamente sua necessidade."></textarea>
         </div>
         <div class="full actions">
-          <button class="btn" type="submit">Enviar interesse</button>
-          <span class="tip">Ao enviar, abriremos um e-mail pronto e baixaremos um CSV local com seus dados.</span>
+          <button class="btn" type="submit">Enviar Formulário</button>
+          <span class="tip">Você será avisado aqui mesmo quando enviarmos.</span>
         </div>
       </form>
     </section>
@@ -411,20 +485,37 @@
   <!-- Barra fixa mobile -->
   <div class="mobile-cta">
     <strong>Instale a GalizaNET hoje</strong>
-    <a class="btn" href="#assine">Assinar</a>
+    <a class="btn btn-wa wa" id="mobileAssinar" href="#" rel="noopener">Assinar</a>
   </div>
 
   <!-- Mascote flutuante (mobile) -->
   <a href="#" id="floatWhats" class="floating-mascot" aria-label="Falar no WhatsApp">
-    <img src="imagens/mascote-cabos.png" alt="">
+    <img src="imagens/mascote-cabos.jpeg" alt="">
     <span>Falar no Whats</span>
   </a>
 
   <!-- JS: Carrossel + Cobertura + WhatsApp + Leads + Mascote -->
   <script>
     /* ===== CONFIGURAÇÕES ===== */
-    const whatsNumber = "+5574999799443";
-    const leadEmail   = "contato@galizanet.com.br";
+    const whatsNumber = "5574999799443"; // TODO: SUBSTITUA pelo WhatsApp oficial (país + DDD + número)
+    const leadEmail   = "vendas-website@galizanet.com.br"; // opcional, não é usado no Forms
+    // Google Forms
+    const GF_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdX2wa92NwQ1W_myJGc1ixBUbEkIqtZawIBa_-_WRLqiA11xA/formResponse"; // TODO: SUBSTITUA
+    const GF_FIELDS = {
+      nome:     "entry.260821988",  // TODO: SUBSTITUA
+      telefone: "entry.1851563381",  // TODO: SUBSTITUA
+      email:    "entry.13758254",  // TODO: SUBSTITUA
+      cidade:   "entry.720492299",  // TODO: SUBSTITUA
+      plano:    "entry.1563233141",  // TODO: SUBSTITUA
+      mensagem: "entry.1324718295"   // TODO: SUBSTITUA
+    };
+
+    /* ===== FUNÇÕES UTIL ===== */
+    function waLink(city, extra=''){
+      const text = `Olá, tenho interesse em assinar a GalizaNET em ${city.replace(', Bahia','/BA')}. ${extra}`.trim();
+      return `https://wa.me/${whatsNumber}?text=${encodeURIComponent(text)}`;
+    }
+    function gmapsSrc(city){ return `https://www.google.com/maps?q=${encodeURIComponent(city)}&z=12&output=embed`; }
 
     /* ===== CARROSSEL ===== */
     const slides = document.getElementById('slides');
@@ -463,25 +554,22 @@
 
     let active = null;
 
-    function gmapsSrc(city){ return `https://www.google.com/maps?q=${encodeURIComponent(city)}&z=12&output=embed`; }
-    function waLink(city, extra=''){
-      const text = `Olá, tenho interesse em assinar a GalizaNET em ${city.replace(', Bahia','/BA')}. ${extra}`.trim();
-      return `https://wa.me/${whatsNumber}?text=${encodeURIComponent(text)}`;
-    }
-
     function setActive(city){
       active = city;
       [...chipsWrap.querySelectorAll('.chip')].forEach(ch => ch.classList.toggle('active', ch.dataset.city === city));
       mapFrame.src = gmapsSrc(city);
       statusEl.style.display = 'inline-flex';
       statusEl.innerHTML = `🟢 Fibra disponível em <strong>${city.replace(', Bahia','/BA')}</strong>`;
-      ctaCidade.href = "#assine";
-      ctaWhats.href  = waLink(city);
+      ctaCidade.href = waLink(city, "Quero instalar.");
+      ctaWhats.href  = waLink(city, "Quero falar com um atendente.");
 
       // Mascote fala a cidade e atualiza Whats
       const cidadeFmt = city.replace(', Bahia','/BA');
       if (mascoteCidade) mascoteCidade.textContent = cidadeFmt;
       if (mascoteWhats)  mascoteWhats.href = waLink(city, 'Quero saber planos e instalação.');
+
+      // Atualiza demais CTAs
+      bindWhatsAppCTAs();
     }
 
     function renderChips(list){
@@ -494,7 +582,6 @@
         chipsWrap.appendChild(b);
       });
     }
-
     searchInp.addEventListener('input', (e) => {
       const t = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
       const filtered = cities.filter(c => c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(t));
@@ -502,9 +589,19 @@
       if(filtered.length && !filtered.includes(active)) setActive(filtered[0]);
     });
 
-    // inicialização
     renderChips(cities);
     setActive(cities[0]);
+
+    /* ===== CTA GLOBAL PARA WHATS ===== */
+    function bindWhatsAppCTAs(){
+      const city = (active || cities[0]);
+      const link = waLink(city, "Quero assinar agora e saber dos planos.");
+      ["navAssinar","heroAssinar","assineAssinar","mobileAssinar","mascoteAssinar","benefResAssinar","benefEmpAssinar","benefMaisAssinar","planosAssinar"].forEach(id=>{
+        const el = document.getElementById(id);
+        if (el) { el.href = link; el.target = "_blank"; }
+      });
+    }
+    bindWhatsAppCTAs();
 
     // Mascote flutuante (abre Whats da cidade ativa)
     if (floatWhats){
@@ -515,65 +612,217 @@
       });
     }
 
-   /* ===== FORM LEADS (Google Forms) ===== */
-const form = document.getElementById('leadForm');
+    /* ===== FORM LEADS -> GOOGLE FORMS ===== */
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if(!data.nome || !data.telefone || !data.cidade){
+        alert("Preencha Nome, Telefone e Cidade."); return;
+      }
+      const payload = new URLSearchParams();
+      payload.append(GF_FIELDS.nome, data.nome || "");
+      payload.append(GF_FIELDS.telefone, data.telefone || "");
+      payload.append(GF_FIELDS.email, data.email || "");
+      payload.append(GF_FIELDS.cidade, data.cidade || "");
+      payload.append(GF_FIELDS.plano, data.plano || "");
+      payload.append(GF_FIELDS.mensagem, data.mensagem || "");
 
-// CONFIGURE aqui seu Google Forms:
-const GF_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdX2wa92NwQ1W_myJGc1ixBUbEkIqtZawIBa_-_WRLqiA11xA/formResponse";
+      try{
+        await fetch(GF_ACTION, { method: "POST", mode: "no-cors", body: payload });
+        alert("Recebemos seu interesse! Nossa equipe entrará em contato.");
+        form.reset();
+        document.getElementById('cidade').value = '';
+      }catch(err){
+        console.error(err);
+        alert("Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.");
+      }
+    });
 
-const GF_FIELDS = {
-  nome:     "entry.260821988",
-  telefone: "entry.1851563381",
-  email:    "entry.13758254",
-  cidade:   "entry.720492299",
-  plano:    "entry.1563233141",
-  mensagem: "entry.1324718295"
+    /* ===== PLANOS: dados (edite à vontade) ===== */
+const PLANS = {
+  residencial: [
+    {
+      badge:"Mais escolhido",
+      name:"Plano 300 Mega",
+      speed:"300 MEGA",
+      upload:"150 MEGA",
+      perks:["Wi-Fi Dual Band","Streaming fluido (2–3 TVs)","Atende home office e games"],
+      price:"R$ 79,90/mês",
+      img:"imagens/planos-internet.png"
+    },
+    {
+      badge:"Custo-benefício",
+      name:"Plano 500 Mega",
+      speed:"500 MEGA",
+      upload:"250 MEGA",
+      perks:["Wi-Fi potente p/ casa toda","Até 6 dispositivos ao mesmo tempo","Suporte local premium"],
+      price:"R$ 99,90/mês",
+      img:"imagens/planos-internet.png"
+    },
+    {
+      badge:"Top de linha",
+      name:"Plano 1 Giga",
+      speed:"1 GIGA",
+      upload:"500 MEGA",
+      perks:["Máxima velocidade","Jogos e 4K sem travar","Ideal p/ muitas pessoas online"],
+      price:"R$ 149,90/mês",
+      img:"imagens/planos-internet.png"
+    }
+  ],
+  combo: [
+    {
+      badge:"Combo",
+      name:"500 Mega + Streaming",
+      speed:"500 MEGA",
+      upload:"250 MEGA",
+      perks:["HBO Max + Paramount*","Wi-Fi Mesh opcional","Atende família inteira"],
+      price:"A partir de R$ 129,90/mês",
+      img:"imagens/planos-internet.png"
+    },
+    {
+      badge:"Combo Saúde",
+      name:"300 Mega + Telemedicina",
+      speed:"300 MEGA",
+      upload:"150 MEGA",
+      perks:["Mediquo incluído*","Atendimento 24h online","Perfeito p/ estudo e trabalho"],
+      price:"A partir de R$ 109,90/mês",
+      img:"imagens/planos-internet.png"
+    }
+  ],
+  empresarial: [
+    {
+      badge:"Link dedicado",
+      name:"100 Mbps Dedicado",
+      speed:"100 Mbps simétrico",
+      upload:"100 Mbps",
+      perks:["SLA e monitoramento","IP Fixo","Prioridade no suporte"],
+      price:"Sob consulta",
+      img:"imagens/planos-internet.png"
+    },
+    {
+      badge:"Rede privada",
+      name:"L2/L3 VPN",
+      speed:"Sob medida",
+      upload:"Sob medida",
+      perks:["Filiais interligadas","QoS e segurança","Projeto customizado"],
+      price:"Sob consulta",
+      img:"imagens/planos-internet.png"
+    }
+  ]
 };
 
-form.addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(form).entries());
-  if(!data.nome || !data.telefone || !data.cidade){
-    alert("Preencha Nome, Telefone e Cidade."); return;
-  }
+/* ===== Render dos cards ===== */
+const track = document.getElementById('plansTrack');
+const dots = document.getElementById('plansDots');
+const tabs = document.querySelectorAll('.plans-tab');
+const left = document.querySelector('.plans-arrow.left');
+const right = document.querySelector('.plans-arrow.right');
 
-  // Monta payload do Google Forms
-  const payload = new URLSearchParams();
-  payload.append(GF_FIELDS.nome, data.nome || "");
-  payload.append(GF_FIELDS.telefone, data.telefone || "");
-  payload.append(GF_FIELDS.email, data.email || "");
-  payload.append(GF_FIELDS.cidade, data.cidade || "");
-  payload.append(GF_FIELDS.plano, data.plano || "");
-  payload.append(GF_FIELDS.mensagem, data.mensagem || "");
+let planType = 'residencial';
+let indexPlan = 0;
 
-  // Envia sem redirecionar o usuário
-  try{
-    await fetch(GF_ACTION, { method: "POST", mode: "no-cors", body: payload });
-    alert("Recebemos seu interesse! Nossa equipe entrará em contato.");
-    form.reset();
-    document.getElementById('cidade').value = '';
-  }catch(err){
-    console.error(err);
-    alert("Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.");
+function cardTemplate(p){
+  return `
+  <article class="plan-card">
+    <div>
+      <span class="plan-badge">🏷️ ${p.badge}</span>
+      <div class="plan-name">${p.name}</div>
+      <div class="plan-speed">${p.speed}</div>
+      <div class="plan-price"><strong>${p.price}</strong> <span class="plan-note"> • upload ${p.upload}</span></div>
+      <ul class="plan-list">
+        ${p.perks.map(x=>`<li>${x}</li>`).join('')}
+      </ul>
+    </div>
+    <div class="plan-cta">
+      <a class="btn btn-wa wa" href="#" data-action="assinar">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Z"/></svg>
+        Assinar no Whats
+      </a>
+      <a class="btn-outline" href="#" data-action="detalhes">Detalhes</a>
+    </div>
+  </article>`;
+}
+
+function renderPlans(){
+  const data = PLANS[planType];
+  track.innerHTML = data.map(cardTemplate).join('');
+  indexPlan = 0;
+  renderDots(data.length);
+  applySlide();
+  wirePlanCTAs();
+}
+
+function renderDots(n){
+  dots.innerHTML = '';
+  for(let i=0;i<n;i++){
+    const b = document.createElement('button');
+    b.className = 'plans-dot' + (i===0?' active':'');
+    b.addEventListener('click', ()=>{ indexPlan = i; applySlide(); });
+    dots.appendChild(b);
   }
+}
+
+function applySlide(){
+  const cards = track.children.length;
+  const vw = window.innerWidth;
+  // Quantos visíveis?
+  const visible = vw <= 720 ? 1 : (vw <= 1024 ? 2 : 3);
+  const maxIndex = Math.max(0, cards - visible);
+  indexPlan = Math.min(indexPlan, maxIndex);
+  const cardWidth = track.querySelector('.plan-card')?.getBoundingClientRect().width || 0;
+  const gap = 14; // mesmo do CSS
+  const offset = (cardWidth + gap) * indexPlan;
+  track.style.transform = `translateX(-${offset}px)`;
+  [...dots.children].forEach((d, i)=> d.classList.toggle('active', i===indexPlan));
+}
+
+left.addEventListener('click', ()=>{ indexPlan = Math.max(0, indexPlan - 1); applySlide(); });
+right.addEventListener('click', ()=>{ indexPlan = indexPlan + 1; applySlide(); });
+window.addEventListener('resize', applySlide);
+
+// Tabs
+tabs.forEach(t=>{
+  t.addEventListener('click', ()=>{
+    tabs.forEach(x=>{x.classList.remove('active'); x.setAttribute('aria-selected','false');});
+    t.classList.add('active'); t.setAttribute('aria-selected','true');
+    planType = t.dataset.tab;
+    renderPlans();
+  });
 });
 
-    function bindWhatsAppCTAs(){
-  const city = (active || "Irecê, Bahia");
-  const link = waLink(city, "Quero assinar agora e saber dos planos.");
-  const ids = ["navAssinar", "heroAssinar", "assineAssinar", "mascoteAssinar", "ctaCidade"];
-  ids.forEach(id=>{
-    const el = document.getElementById(id);
-    if (el) { el.href = link; el.target = "_blank"; }
+// Swipe (mobile)
+let startX=null;
+track.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX, {passive:true});
+track.addEventListener('touchmove', (e)=>{
+  if(startX===null) return;
+  const dx = e.touches[0].clientX - startX;
+  if(Math.abs(dx)>60){
+    if(dx<0) indexPlan++;
+    else indexPlan = Math.max(0, indexPlan-1);
+    applySlide(); startX=null;
+  }
+}, {passive:true});
+track.addEventListener('touchend', ()=> startX=null);
+
+// Liga os CTAs para WhatsApp (cidade ativa)
+function wirePlanCTAs(){
+  const city = (typeof active!=='undefined' && active) ? active : "Irecê, Bahia";
+  track.querySelectorAll('[data-action="assinar"]').forEach(btn=>{
+    btn.href = waLink(city, `Tenho interesse em ${planType.toUpperCase()} — ${btn.closest('.plan-card').querySelector('.plan-name').textContent}`);
+    btn.target = "_blank";
+    btn.rel = "noopener";
+  });
+  track.querySelectorAll('[data-action="detalhes"]').forEach(btn=>{
+    btn.href = waLink(city, `Quero detalhes do ${planType.toUpperCase()}: ${btn.closest('.plan-card').querySelector('.plan-name').textContent}`);
+    btn.target = "_blank";
+    btn.rel = "noopener";
   });
 }
-// chame após setActive:
-const _oldSetActive = setActive;
-setActive = function(city){
-  _oldSetActive(city);
-  bindWhatsAppCTAs();
-}
-bindWhatsAppCTAs(); // 1ª vez
+
+// inicializa
+renderPlans();
+
   </script>
 </body>
 </html>
