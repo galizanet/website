@@ -111,7 +111,7 @@
     /* Testimonials & trust */
     .testimonials blockquote{background:#fff; border-left:5px solid var(--secondary); padding:14px 16px; border-radius:8px; font-style:italic}
     .testimonials span{display:block; margin-top:6px; font-weight:800; color:var(--primary)}
-    .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:18px; align-items:center; justify-items:center}
+    .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(400px,1fr)); gap:20px; align-items:center; justify-items:center}
     .trust-logos img{max-height:44px; filter:grayscale(10%); opacity:.95}
 
     /* ASSINE */
@@ -155,6 +155,13 @@
       .mobile-cta{display:flex}
       .floating-mascot{display:flex}
     }
+    /* WhatsApp icon + button accent */
+    .wa { display:inline-flex; align-items:center; gap:8px }
+    .wa svg { width:18px; height:18px }
+    .btn-wa { background:#25D366; color:#0b2816; box-shadow:0 6px 18px rgba(37,211,102,.35) }
+    .btn-wa:hover{ filter:brightness(.95) }
+    .btn-outline-wa{ border:2px solid #25D366; color:#25D366; background:#fff }
+    .btn-outline-wa:hover{ background:#dff7e9 }
   </style>
 </head>
 <body>
@@ -165,7 +172,11 @@
       <a href="#"><img src="imagens/logo@2x.png" alt="GalizaNET" class="logo-nav"></a>
       <div class="cta">
         <a class="btn-outline" href="#cobertura">Cobertura</a>
-        <a class="btn" href="#assine">Assine agora</a>
+        <a class="btn btn-wa wa" id="navAssinar" href="#" rel="noopener">
+  <!-- ícone WA -->
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
+  Assinar via WhatsApp
+</a>
       </div>
     </div>
   </div>
@@ -179,7 +190,10 @@
           <h1>A internet que funciona de verdade em Irecê e região</h1>
           <p>Chega de promessas. Conexão estável + atendimento humano para trabalhar, estudar, jogar e maratonar sem travar.</p>
           <div class="primary-cta">
-            <a class="btn" href="#assine">👉 Quero assinar agora</a>
+            <a class="btn btn-wa wa" id="heroAssinar" href="#" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
+  👉 Fale agora conosco via WhatsApp
+</a>
           </div>
           <div class="badges">
             <span class="badge">Instalação rápida</span>
@@ -270,8 +284,8 @@
             </div>
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
-              <a id="ctaCidade" class="btn" href="#assine">Quero instalar</a>
-              <a id="ctaWhats" class="btn-ghost" href="#" target="_blank" rel="noopener">💬 Fale agora no WhatsApp</a>
+              <a id="ctaCidade" class="btn btn-wa wa" href="#">💬 Assinar via WhatsApp</a>
+              <a id="ctaWhats" class="btn-ghost" href="#" target="_blank" rel="noopener">💬 Chame WhatsApp</a>
             </div>
           </div>
 
@@ -289,11 +303,11 @@
               </p>
               <div class="mascot-actions">
                 <a id="mascoteWhats" class="btn-ghost" target="_blank" rel="noopener">💬 WhatsApp</a>
-                <a class="btn" href="#assine">Assinar agora</a>
+                <a class="btn btn-wa wa" id="mascoteAssinar" href="#" rel="noopener"> Assinar no WhatsApp</a>
               </div>
               <span class="tail"></span>
             </div>
-            <img src="imagens/mascote-roteador.jpeg" alt="Mascote GalizaNET com roteador" class="mascot-img">
+            <img src="imagens/mascote-roteador.png" alt="Mascote GalizaNET com roteador" class="mascot-img">
           </div>
         </div>
       </div>
@@ -336,7 +350,10 @@
       <h2>Pronto para ter Internet que funciona?</h2>
       <p>Escolha seu plano e faça parte da GalizaNET. Instalação rápida e suporte local.</p>
       <div class="cta-group">
-        <a class="btn" href="https://www.galizanet.com.br/?utm_source=site&utm_medium=cta&utm_campaign=assine_topo">Assinar agora</a>
+        <a class="btn btn-wa wa" id="assineAssinar" href="#" rel="noopener">
+  <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path fill="#25D366" d="M16 3c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Z"/><path fill="#fff" d="M25 16c0 4.97-4.03 9-9 9-1.58 0-3.13-.41-4.5-1.18l-.33-.18-4.14 1.09 1.11-4.06-.19-.34A8.94 8.94 0 0 1 7 16c0-4.97 4.03-9 9-9s9 4.03 9 9Zm-5.13-1.07c-.14-.07-.84-.41-.97-.46-.13-.05-.23-.07-.33.07-.1.14-.38.46-.46.55-.08.09-.17.11-.31.04-.14-.07-.6-.22-1.14-.7-.42-.38-.71-.86-.79-1.01-.08-.14-.01-.22.06-.29.06-.06.14-.17.21-.25.07-.08.1-.14.15-.24.05-.1.02-.18 0-.25-.02-.07-.33-.8-.46-1.09-.12-.29-.24-.25-.33-.25-.08 0-.18-.01-.28-.01-.1 0-.26.04-.39.18-.13.14-.5.48-.5 1.18s.51 1.37.58 1.46c.07.09 1 1.6 2.42 2.25.34.15.6.24.8.31.34.11.65.09.9.06.27-.04.84-.34.96-.66.12-.32.12-.59.08-.66-.04-.07-.13-.11-.27-.18Z"/></svg>
+  Assinar agora pelo WhatsApp
+</a>
         <a class="btn-outline" href="#cobertura">Ver cobertura</a>
       </div>
     </section>
@@ -399,7 +416,7 @@
 
   <!-- Mascote flutuante (mobile) -->
   <a href="#" id="floatWhats" class="floating-mascot" aria-label="Falar no WhatsApp">
-    <img src="imagens/mascote-cabos.jpeg" alt="">
+    <img src="imagens/mascote-cabos.png" alt="">
     <span>Falar no Whats</span>
   </a>
 
@@ -498,41 +515,65 @@
       });
     }
 
-    /* ===== FORM LEADS ===== */
-    const form = document.getElementById('leadForm');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      if(!data.nome || !data.telefone || !data.cidade){
-        alert("Preencha Nome, Telefone e Cidade.");
-        return;
-      }
-      const now = new Date().toISOString();
-      const assunto = `Lead GalizaNET (${data.cidade}) - ${data.nome}`;
-      const corpo = [
-        `Nome: ${data.nome}`,
-        `Telefone/WhatsApp: ${data.telefone}`,
-        `E-mail: ${data.email||'-'}`,
-        `Cidade: ${data.cidade}`,
-        `Plano: ${data.plano||'-'}`,
-        `Mensagem: ${data.mensagem||'-'}`,
-        `Data/Hora: ${now}`
-      ].join('%0D%0A');
-      // abre email
-      window.location.href = `mailto:${encodeURIComponent(leadEmail)}?subject=${encodeURIComponent(assunto)}&body=${corpo}`;
-      // baixa CSV local
-      const headers = ['timestamp','nome','telefone','email','cidade','plano','mensagem'];
-      const values  = [now, data.nome, data.telefone, data.email||'', data.cidade, data.plano||'', (data.mensagem||'').replace(/\n/g,' ') ];
-      const csv = headers.join(',') + '\n' + values.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',');
-      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `lead-galizanet-${Date.now()}.csv`;
-      document.body.appendChild(a); a.click(); a.remove();
-      navigator.clipboard?.writeText(decodeURIComponent(corpo.replace(/%0D%0A/g,'\n')));
-      form.reset(); document.getElementById('cidade').value = '';
-      alert("Obrigado! Seu interesse foi enviado.");
-    });
+   /* ===== FORM LEADS (Google Forms) ===== */
+const form = document.getElementById('leadForm');
+
+// CONFIGURE aqui seu Google Forms:
+const GF_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSdX2wa92NwQ1W_myJGc1ixBUbEkIqtZawIBa_-_WRLqiA11xA/formResponse";
+
+const GF_FIELDS = {
+  nome:     "entry.260821988",
+  telefone: "entry.1851563381",
+  email:    "entry.13758254",
+  cidade:   "entry.720492299",
+  plano:    "entry.1563233141",
+  mensagem: "entry.1324718295"
+};
+
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form).entries());
+  if(!data.nome || !data.telefone || !data.cidade){
+    alert("Preencha Nome, Telefone e Cidade."); return;
+  }
+
+  // Monta payload do Google Forms
+  const payload = new URLSearchParams();
+  payload.append(GF_FIELDS.nome, data.nome || "");
+  payload.append(GF_FIELDS.telefone, data.telefone || "");
+  payload.append(GF_FIELDS.email, data.email || "");
+  payload.append(GF_FIELDS.cidade, data.cidade || "");
+  payload.append(GF_FIELDS.plano, data.plano || "");
+  payload.append(GF_FIELDS.mensagem, data.mensagem || "");
+
+  // Envia sem redirecionar o usuário
+  try{
+    await fetch(GF_ACTION, { method: "POST", mode: "no-cors", body: payload });
+    alert("Recebemos seu interesse! Nossa equipe entrará em contato.");
+    form.reset();
+    document.getElementById('cidade').value = '';
+  }catch(err){
+    console.error(err);
+    alert("Não foi possível enviar agora. Tente novamente ou chame no WhatsApp.");
+  }
+});
+
+    function bindWhatsAppCTAs(){
+  const city = (active || "Irecê, Bahia");
+  const link = waLink(city, "Quero assinar agora e saber dos planos.");
+  const ids = ["navAssinar", "heroAssinar", "assineAssinar", "mascoteAssinar", "ctaCidade"];
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    if (el) { el.href = link; el.target = "_blank"; }
+  });
+}
+// chame após setActive:
+const _oldSetActive = setActive;
+setActive = function(city){
+  _oldSetActive(city);
+  bindWhatsAppCTAs();
+}
+bindWhatsAppCTAs(); // 1ª vez
   </script>
 </body>
 </html>
