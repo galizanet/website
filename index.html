@@ -978,7 +978,7 @@ html { scroll-behavior: smooth; }
         <div>
           <label for="plano" class="tip">Plano de interesse</label>
           <select id="plano" name="plano">
-            <option>100 Mbps</option><option>300 Mbps</option><option>500 Mbps</option><option>1 Gbps</option><option>A combinar (empresa)</option>
+            <option>200 Mbps</option><option>400 Mbps</option><option>600 Mbps</option><option>1000 Mbps</option><option>A combinar (empresa)</option>
           </select>
         </div>
         <div class="full">
@@ -1176,20 +1176,29 @@ html { scroll-behavior: smooth; }
 const PLANS = {
   residencial: [
     {
-      badge:"Mais escolhido",
-      name:"Plano 300 Mega",
-      speed:"300 MEGA",
-      upload:"150 MEGA",
+      badge:"Mais barato",
+      name:"Plano 200 Mega",
+      speed:"200 MEGA",
+      upload:"20 MEGA",
       perks:["Wi-Fi Dual Band","Streaming fluido (2–3 TVs)","Atende home office e games"],
-      price:"R$ 79,90/mês",
+      price:"R$ 69,90/mês",
       img:"imagens/planos-internet.png"
     },
     {
       badge:"Custo-benefício",
-      name:"Plano 500 Mega",
-      speed:"500 MEGA",
-      upload:"250 MEGA",
+      name:"Plano 400 Mega",
+      speed:"400 MEGA",
+      upload:"25 MEGA",
       perks:["Wi-Fi potente p/ casa toda","Até 6 dispositivos ao mesmo tempo","Suporte local premium"],
+      price:"R$ 79,90/mês",
+      img:"imagens/planos-internet.png"
+    },
+    {
+      badge:"Mais escolhido",
+      name:"Plano 600 Mega",
+      speed:"600 MEGA",
+      upload:"30 MEGA",
+      perks:["Instalação grátis","Streaming Paramount incluso", "Até 12 dispositivos ao mesmo tempo","Suporte local premium"],
       price:"R$ 99,90/mês",
       img:"imagens/planos-internet.png"
     },
@@ -1197,8 +1206,8 @@ const PLANS = {
       badge:"Top de linha",
       name:"Plano 1 Giga",
       speed:"1 GIGA",
-      upload:"500 MEGA",
-      perks:["Máxima velocidade","Jogos e 4K sem travar","Ideal p/ muitas pessoas online"],
+      upload:"50 MEGA",
+      perks:["Máxima velocidade","IPv4 e IPv6 público", "Jogos e 4K sem travar","Ideal p/ muitas pessoas online"],
       price:"R$ 149,90/mês",
       img:"imagens/planos-internet.png"
     }
@@ -1206,35 +1215,35 @@ const PLANS = {
   combo: [
     {
       badge:"Combo",
-      name:"500 Mega + Streaming",
-      speed:"500 MEGA",
-      upload:"250 MEGA",
-      perks:["HBO Max + Paramount*","Wi-Fi Mesh opcional","Atende família inteira"],
+      name:"600 Mega + Streaming + Wi-Fi Mesh",
+      speed:"600 MEGA",
+      upload:"30 MEGA",
+      perks:["HBO Max + Paramount*","Wi-Fi Mesh (cobertura na casa toda)","Atende família inteira"],
       price:"A partir de R$ 129,90/mês",
       img:"imagens/planos-internet.png"
     },
     {
       badge:"Combo Saúde",
-      name:"300 Mega + Telemedicina",
-      speed:"300 MEGA",
-      upload:"150 MEGA",
-      perks:["Mediquo incluído*","Atendimento 24h online","Perfeito p/ estudo e trabalho"],
-      price:"A partir de R$ 109,90/mês",
+      name:"600 Mega + Telemedicina",
+      speed:"600 MEGA",
+      upload:"30 MEGA",
+      perks:["Mediquo incluído*","Atendimento consultas 24h online","Perfeito p/ estudo e trabalho"],
+      price:"A partir de R$ 129,90/mês",
       img:"imagens/planos-internet.png"
     }
   ],
   empresarial: [
     {
-      badge:"Link dedicado",
+      badge:"Link dedicado empresarial",
       name:"100 Mbps Dedicado",
       speed:"100 Mbps simétrico",
       upload:"100 Mbps",
-      perks:["SLA e monitoramento","IP Fixo","Prioridade no suporte"],
+      perks:["SLA e monitoramento","IPv6/IPv6 Fixo","Prioridade no suporte"],
       price:"Sob consulta",
       img:"imagens/planos-internet.png"
     },
     {
-      badge:"Rede privada",
+      badge:"Rede privada (VPN)",
       name:"L2/L3 VPN",
       speed:"Sob medida",
       upload:"Sob medida",
