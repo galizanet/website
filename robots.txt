@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.galizanet.com.br/sitemap.xml
+Sitemap: https://galizanet.github.io/website/sitemap.xml
+
+# Bloqueios comuns (ajuste se criar rotas novas privadas)
+# Disallow: /admin/
+# Disallow: /tmp/
