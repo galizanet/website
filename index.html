@@ -4,232 +4,352 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GalizaNET - A Internet que Funciona</title>
-  <meta name="description" content="GalizaNET: Internet de alta velocidade em Irecê e região. Conexão confiável, atendimento humano e planos residenciais, empresariais e governamentais.">
+  <meta name="description" content="GalizaNET: Internet confiável em Irecê e região. Conexão estável, atendimento humano e planos residenciais, empresariais e governamentais.">
   <style>
     :root{
       --primary:#0a1f44;      /* azul escuro */
       --secondary:#ff6600;    /* laranja */
+      --accent:#0f5fff;       /* azul vivo */
       --light:#f7f8fb;
       --gray:#617184;
-      --maxw:1100px;
-      --radius:12px;
-      --shadow:0 6px 20px rgba(10,31,68,.08);
+      --maxw:1200px;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(10,31,68,.12);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial; color:var(--primary); background:var(--light); line-height:1.6}
-
     a{color:inherit;text-decoration:none}
     img{max-width:100%;height:auto}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
 
-    header{background:var(--primary); color:#fff; padding:24px 16px; text-align:center}
-    header .wrap{max-width:var(--maxw); margin:0 auto}
-    header img{width:200px; height:auto; margin-bottom:8px}
-    header h1{font-size:28px; letter-spacing:.5px}
-    header p{opacity:.9}
+    /* HEADER com degradê + linhas */
+    .hero{
+      position:relative; overflow:hidden; color:#fff;
+      background: radial-gradient(1200px 500px at 20% 0%, rgba(15,95,255,.5), transparent 60%),
+                  linear-gradient(135deg, #0a1f44 0%, #12306e 45%, #0f5fff 100%);
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 1px, transparent 1px 14px),
+        repeating-linear-gradient(65deg, rgba(255,255,255,.04) 0 1px, transparent 1px 18px);
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(1.2) blur(8px);
+      background:rgba(10,31,68,.65);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .nav .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 16px}
+    .nav img{width:160px}
+    .nav .cta{display:flex; gap:10px}
+    .btn, .btn-outline{
+      display:inline-block; padding:12px 18px; border-radius:12px; font-weight:800; letter-spacing:.3px; transition:.2s ease; white-space:nowrap
+    }
+    .btn{background:var(--secondary); color:#fff; box-shadow:0 6px 18px rgba(255,102,0,.35)}
+    .btn:hover{filter:brightness(.92)}
+    .btn-outline{border:2px solid #fff; color:#fff}
+    .btn-outline:hover{background:#ffffff12}
 
-    section{max-width:var(--maxw); margin:32px auto; padding:0 16px}
-    .headline{text-align:center; margin-top:24px}
-    .headline h2{font-size:28px; color:var(--secondary); margin-bottom:8px}
-    .headline p{color:var(--gray)}
+    .hero .content{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; padding:34px 0 44px}
+    .hero h1{font-size:38px; line-height:1.15; letter-spacing:.2px}
+    .hero p{opacity:.95; margin-top:8px}
+    .hero .primary-cta{margin-top:18px}
+    .hero .badges{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .badge{background:#ffffff1e; border:1px solid #ffffff3a; padding:8px 12px; border-radius:999px; font-weight:700}
 
+    /* CARROSSEL */
+    .carousel{margin:-24px auto 24px; position:relative}
+    .slider{position:relative; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .slides{display:flex; transition:transform .6s ease}
+    .slide{
+      min-width:100%; height:380px; position:relative; color:#fff; display:flex; align-items:flex-end; padding:20px;
+      background:#000 center/cover no-repeat;
+    }
+    .slide::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.15) 0, rgba(0,0,0,.55) 70%); border-radius:var(--radius)}
+    .slide .copy{position:relative; z-index:2; max-width:700px}
+    .slide h3{font-size:26px; margin-bottom:6px}
+    .slide p{opacity:.92}
+    .slider .dots{position:absolute; bottom:12px; left:0; right:0; display:flex; gap:8px; justify-content:center; z-index:3}
+    .dot{width:11px; height:11px; border-radius:50%; background:#ffffff70; cursor:pointer; border:1px solid #ffffff90}
+    .dot.active{background:#fff}
+    .slider .arrows{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding:0 8px; z-index:3}
+    .arrow{width:42px; height:42px; border-radius:50%; background:#ffffffb0; display:grid; place-items:center; cursor:pointer}
+    .arrow:hover{background:#fff}
+
+    section{margin:36px 0}
     .grid{display:grid; gap:16px}
     .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); transition:transform .25s ease}
-    .card:hover{transform:translateY(-4px)}
+    .card{background:#fff; border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
     .card h3{color:var(--secondary); margin-bottom:8px}
     .muted{color:var(--gray)}
 
-    .cta{text-align:center; margin:32px 0}
-    .btn{
-      display:inline-block; background:var(--secondary); color:#fff;
-      padding:14px 22px; border-radius:10px; font-weight:700; transition:filter .2s ease
-    }
-    .btn:hover{filter:brightness(.9)}
-
     /* Cobertura */
     .cover{display:grid; gap:20px; grid-template-columns: 1.2fr .8fr}
-    .cover .panel{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow)}
-    .cover .panel .inner{padding:16px}
+    .panel{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden}
+    .panel .inner{padding:16px}
     .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .chip{
-      padding:10px 14px; border-radius:999px; background:#f0f3f7; color:#223;
-      border:1.5px solid transparent; cursor:pointer; transition:all .2s ease; font-weight:600; font-size:14px
-    }
+    .chip{padding:10px 14px; border-radius:999px; background:#f0f3f7; color:#223; border:1.5px solid transparent; cursor:pointer; transition:all .2s ease; font-weight:700; font-size:14px}
     .chip:hover{border-color:#dae2ee}
     .chip.active{background:#fff; border-color:var(--secondary); color:var(--secondary); box-shadow:var(--shadow)}
-    .map{
-      width:100%; aspect-ratio:16/11; border:0; border-radius:0 0 var(--radius) var(--radius)
-    }
-    .searchbox{
-      display:flex; gap:10px; align-items:center; background:#f5f7fb; padding:10px 12px; border-radius:10px; border:1px solid #e6ebf2
-    }
-    .searchbox input{
-      border:0; outline:0; background:transparent; flex:1; font-size:15px; color:var(--primary)
-    }
-    .availability{
-      display:flex; align-items:center; gap:8px; font-weight:700; color:#19733b; background:#e6f5ec; padding:8px 12px; border-radius:8px; width:max-content; margin-top:12px; border:1px solid #cdebd8
-    }
+    .map{width:100%; aspect-ratio:16/11; border:0}
+    .searchbox{display:flex; gap:10px; align-items:center; background:#f5f7fb; padding:10px 12px; border-radius:10px; border:1px solid #e6ebf2}
+    .searchbox input{border:0; outline:0; background:transparent; flex:1; font-size:15px; color:var(--primary)}
+    .availability{display:flex; align-items:center; gap:8px; font-weight:800; color:#19733b; background:#e6f5ec; padding:8px 12px; border-radius:8px; width:max-content; margin-top:12px; border:1px solid #cdebd8}
 
     /* Testimonials & trust */
     .testimonials blockquote{background:#fff; border-left:5px solid var(--secondary); padding:14px 16px; border-radius:8px; font-style:italic}
-    .testimonials span{display:block; margin-top:6px; font-weight:700; color:var(--primary)}
-    .trust .card{display:flex; align-items:center; justify-content:center; font-weight:700; min-height:72px}
+    .testimonials span{display:block; margin-top:6px; font-weight:800; color:var(--primary)}
+    .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:18px; align-items:center; justify-items:center}
+    .trust-logos img{max-height:44px; filter:grayscale(10%); opacity:.95}
 
+    /* Seção ASSINE */
+    .assine{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; text-align:center}
+    .assine h2{font-size:28px; margin-bottom:6px}
+    .assine p{color:var(--gray)}
+    .assine .cta-group{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+    /* FOOTER */
     footer{background:var(--primary); color:#fff; text-align:center; padding:22px; margin-top:40px}
-    footer a{color:#ffd2b0; font-weight:700}
+    footer a{color:#ffd2b0; font-weight:800}
+
+    /* Barra fixa mobile (CTA) */
+    .mobile-cta{
+      position:fixed; bottom:0; left:0; right:0; z-index:30;
+      background:linear-gradient(90deg,var(--secondary),#ff7e1f);
+      color:#fff; display:none; align-items:center; justify-content:space-between; gap:8px;
+      padding:10px 14px; box-shadow:0 -8px 24px rgba(0,0,0,.12)
+    }
+    .mobile-cta strong{font-size:15px}
+    .mobile-cta .btn{background:#fff; color:#e25400; box-shadow:none}
 
     @media (max-width:980px){
+      .hero .content{grid-template-columns:1fr}
       .cover{grid-template-columns:1fr}
+      .slide{height:320px}
+      .mobile-cta{display:flex}
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
+  <!-- NAV + STICKY CTA -->
+  <div class="nav">
+    <div class="wrap bar">
+      <a href="#"><img src="imagens/logo.png" alt="GalizaNET"></a>
+      <div class="cta">
+        <a class="btn-outline" href="#cobertura">Cobertura</a>
+        <a class="btn" href="#assine">Assine agora</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
     <div class="wrap">
-      <img src="logo.png" alt="GalizaNET">
-      <h1>GalizaNET</h1>
-      <p>A Internet que Funciona em Irecê e toda a região</p>
+      <div class="content">
+        <div>
+          <h1>A internet que funciona de verdade em Irecê e região</h1>
+          <p>Chega de promessas. Conexão estável + atendimento humano para trabalhar, estudar, jogar e maratonar sem travar.</p>
+          <div class="primary-cta">
+            <a class="btn" href="#assine">👉 Quero assinar agora</a>
+          </div>
+          <div class="badges">
+            <span class="badge">Instalação rápida</span>
+            <span class="badge">Suporte local</span>
+            <span class="badge">Garantia real</span>
+          </div>
+        </div>
+
+        <!-- CARROSSEL -->
+        <section class="carousel">
+          <div class="slider" id="slider">
+            <div class="slides" id="slides">
+              <div class="slide" style="background-image:url('imagens/beneficio-internet.jpg')">
+                <div class="copy">
+                  <h3>🚀 Internet que funciona</h3>
+                  <p>Velocidade de verdade e estabilidade para o dia a dia.</p>
+                </div>
+              </div>
+              <div class="slide" style="background-image:url('imagens/beneficio-atendimento.jpg')">
+                <div class="copy">
+                  <h3>🤝 Atendimento de primeira</h3>
+                  <p>Gente de verdade ajudando você, sem enrolação.</p>
+                </div>
+              </div>
+              <div class="slide" style="background-image:url('imagens/beneficio-garantia.jpg')">
+                <div class="copy">
+                  <h3>🔒 Garantia e confiança</h3>
+                  <p>Contrato claro, serviço garantido e empresa da região.</p>
+                </div>
+              </div>
+            </div>
+            <div class="arrows">
+              <button class="arrow" aria-label="Anterior" id="prev">‹</button>
+              <button class="arrow" aria-label="Próximo" id="next">›</button>
+            </div>
+            <div class="dots" id="dots"></div>
+          </div>
+        </section>
+      </div>
     </div>
   </header>
 
-  <!-- HERO / HEADLINE -->
-  <section class="headline">
-    <h2>Cansado de internet lenta e atendimento ruim?</h2>
-    <p>Na GalizaNET você tem conexão de verdade e suporte humano que resolve.</p>
-  </section>
-
-  <!-- BENEFITS -->
-  <section>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>🚀 Internet que funciona</h3>
-        <p class="muted">Estável e rápida para trabalhar, estudar, jogar e maratonar sem travar.</p>
-      </div>
-      <div class="card">
-        <h3>🤝 Atendimento de primeira</h3>
-        <p class="muted">Gente de verdade ajudando você. Rápido, próximo e sem enrolação.</p>
-      </div>
-      <div class="card">
-        <h3>🔒 Garantia e confiança</h3>
-        <p class="muted">Serviço com garantia e contratos claros. Somos daqui e estamos por perto.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta">
-    <a class="btn" href="https://www.galizanet.com.br">👉 Assine agora a Internet que funciona</a>
-  </div>
-
-  <!-- COBERTURA INTERATIVA -->
-  <section aria-labelledby="cobertura-title">
-    <h2 id="cobertura-title" style="text-align:center; margin-bottom:12px;">Cobertura em Fibra Óptica</h2>
-    <p class="muted" style="text-align:center; margin-bottom:18px;">Clique na sua cidade para ver no mapa e solicitar instalação.</p>
-
-    <div class="cover">
-      <!-- Painel das cidades -->
-      <div class="panel">
-        <div class="inner">
-          <div class="searchbox" role="search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#617184" stroke-width="2" stroke-linecap="round"/></svg>
-            <input id="citySearch" type="search" placeholder="Buscar cidade..." aria-label="Buscar cidade">
-          </div>
-
-          <div id="chips" class="chips" aria-live="polite" aria-label="Lista de cidades com cobertura">
-            <!-- chips são injetados via JS -->
-          </div>
-
-          <div id="status" class="availability" style="display:none">
-            <span>🟢 Fibra disponível</span>
-          </div>
-
-          <div style="margin-top:12px">
-            <a id="ctaCidade" class="btn" href="https://www.galizanet.com.br">Quero instalar na minha cidade</a>
-          </div>
-        </div>
-
-        <iframe id="map" class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de cobertura"></iframe>
-      </div>
-
-      <!-- Resumo rápido -->
-      <div class="panel">
-        <div class="inner">
-          <h3 style="margin-bottom:8px; color:var(--secondary)">Cidades atendidas</h3>
-          <p class="muted">Atendemos Irecê, Lapão, Canarana, João Dourado, Central, Uibaí, Presidente Dutra e Aguada Nova de Lapão — e estamos expandindo!</p>
-          <ul style="margin-top:12px; padding-left:18px; color:var(--primary); font-weight:600; line-height:1.9">
-            <li>Irecê (sede)</li>
-            <li>Lapão</li>
-            <li>Canarana</li>
-            <li>João Dourado</li>
-            <li>Central</li>
-            <li>Uibaí</li>
-            <li>Presidente Dutra</li>
-            <li>Aguada Nova de Lapão</li>
-          </ul>
-          <p class="muted" style="margin-top:14px">Não achou sua cidade? Fale com a gente no Instagram <a href="https://instagram.com/galizanet">@galizanet</a> e manifeste interesse.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section>
-    <div class="grid grid-3">
+  <!-- BENEFÍCIOS + PLANOS -->
+  <main class="wrap">
+    <section class="grid grid-3" aria-label="beneficios">
       <div class="card">
         <h3>🌐 Internet Residencial</h3>
         <p class="muted">Wi-Fi potente para toda a casa, estabilidade e velocidade para a família.</p>
       </div>
       <div class="card">
         <h3>🏢 Empresarial & Governo</h3>
-        <p class="muted">Conectividade confiável para operações críticas. Redes privadas seguras quando você precisar.</p>
+        <p class="muted">Conectividade confiável para operações críticas. Redes privadas quando precisar.</p>
       </div>
       <div class="card">
         <h3>📺 Muito mais que Internet</h3>
         <p class="muted">Pacotes com HBO Max, Paramount e telemedicina com <strong>Mediquo</strong>.</p>
       </div>
-    </div>
-  </section>
+      <div class="card" style="grid-column:1/-1; display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center">
+        <img src="imagens/planos.jpg" alt="Planos de internet" style="border-radius:10px">
+        <div>
+          <h3>⚡ Ultra velocidades</h3>
+          <p class="muted">Nossos planos garantem a rapidez que você precisa no acesso — do básico ao turbo. Escolha o ideal e comece hoje.</p>
+          <div style="margin-top:10px"><a class="btn" href="#assine">Ver planos e assinar</a></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <h2 style="text-align:center; margin-bottom:12px;">O que nossos clientes dizem</h2>
-    <div class="grid">
-      <blockquote>
-        "Antes era só dor de cabeça com outras operadoras. Desde que migrei para a GalizaNET, minha internet nunca mais caiu."
-        <span>– Maria, Irecê/BA</span>
-      </blockquote>
-      <blockquote>
-        "Sou empresário, dependo da internet para rodar meu sistema. Com a GalizaNET tenho estabilidade e suporte rápido."
-        <span>– João, Lapão/BA</span>
-      </blockquote>
-      <blockquote>
-        "Uso para estudar e fazer videochamadas. Funciona sempre, e quando preciso, o atendimento é humano e atencioso."
-        <span>– Ana, João Dourado/BA</span>
-      </blockquote>
-    </div>
-  </section>
+    <!-- COBERTURA -->
+    <section id="cobertura" aria-labelledby="cobertura-title">
+      <h2 id="cobertura-title" style="text-align:center; margin-bottom:12px;">Cobertura em Fibra Óptica</h2>
+      <p class="muted" style="text-align:center; margin-bottom:18px;">Clique na sua cidade para ver no mapa e solicitar instalação.</p>
 
-  <!-- TRUST -->
-  <section class="trust">
-    <h2 style="text-align:center; margin-bottom:12px;">Confiança e Qualidade</h2>
-    <div class="grid grid-3">
-      <div class="card">✅ Certificação Anatel</div>
-      <div class="card">✅ Parceiros HBO Max & Paramount</div>
-      <div class="card">✅ Telemedicina com Mediquo</div>
-    </div>
-  </section>
+      <div class="cover">
+        <!-- Painel das cidades -->
+        <div class="panel">
+          <div class="inner">
+            <div class="searchbox" role="search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#617184" stroke-width="2" stroke-linecap="round"/></svg>
+              <input id="citySearch" type="search" placeholder="Buscar cidade..." aria-label="Buscar cidade">
+            </div>
 
-  <!-- FOOTER -->
+            <div id="chips" class="chips" aria-live="polite" aria-label="Lista de cidades com cobertura"></div>
+
+            <div id="status" class="availability" style="display:none">
+              <span>🟢 Fibra disponível</span>
+            </div>
+
+            <div style="margin-top:12px">
+              <a id="ctaCidade" class="btn" href="#assine">Quero instalar na minha cidade</a>
+            </div>
+          </div>
+
+          <iframe id="map" class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de cobertura"></iframe>
+        </div>
+
+        <!-- Resumo rápido -->
+        <div class="panel">
+          <div class="inner">
+            <h3 style="margin-bottom:8px; color:var(--secondary)">Cidades atendidas</h3>
+            <p class="muted">Irecê, Lapão, Canarana, João Dourado, Central, Uibaí, Presidente Dutra e Aguada Nova de Lapão — estamos expandindo!</p>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--primary); font-weight:700; line-height:1.9">
+              <li>Irecê (sede)</li><li>Lapão</li><li>Canarana</li><li>João Dourado</li>
+              <li>Central</li><li>Uibaí</li><li>Presidente Dutra</li><li>Aguada Nova de Lapão</li>
+            </ul>
+            <p class="muted" style="margin-top:14px">Não achou sua cidade? Fale no Instagram <a href="https://instagram.com/galizanet">@galizanet</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTEMUNHOS -->
+    <section class="testimonials">
+      <h2 style="text-align:center; margin-bottom:12px;">O que nossos clientes dizem</h2>
+      <div class="grid">
+        <blockquote>
+          "Antes era só dor de cabeça com outras operadoras. Desde que migrei para a GalizaNET, minha internet nunca mais caiu."
+          <span>– Maria, Irecê/BA</span>
+        </blockquote>
+        <blockquote>
+          "Sou empresário, dependo da internet para rodar meu sistema. Com a GalizaNET tenho estabilidade e suporte rápido."
+          <span>– João, Lapão/BA</span>
+        </blockquote>
+        <blockquote>
+          "Uso para estudar e fazer videochamadas. Funciona sempre, e quando preciso, o atendimento é humano e atencioso."
+          <span>– Ana, João Dourado/BA</span>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CONFIANÇA E QUALIDADE -->
+    <section class="trust">
+      <h2 style="text-align:center; margin-bottom:12px;">Confiança e Qualidade</h2>
+      <div class="trust-logos">
+        <img src="imagens/anatel.png" alt="Anatel">
+        <img src="imagens/hbomax.png" alt="HBO Max">
+        <img src="imagens/paramount.png" alt="Paramount">
+        <img src="imagens/mediquo.png" alt="Mediquo">
+      </div>
+    </section>
+
+    <!-- ASSINE -->
+    <section id="assine" class="assine">
+      <h2>Pronto para ter Internet que funciona?</h2>
+      <p>Escolha seu plano e faça parte da GalizaNET. Instalação rápida e suporte local.</p>
+      <div class="cta-group">
+        <a class="btn" href="https://www.galizanet.com.br/?utm_source=site&utm_medium=cta&utm_campaign=assine_topo">Assinar agora</a>
+        <a class="btn-outline" href="#cobertura">Ver cobertura</a>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>GalizaNET – A Internet que Funciona.</p>
     <p>Siga no Instagram: <a href="https://instagram.com/galizanet">@galizanet</a> • <a href="https://www.galizanet.com.br">www.galizanet.com.br</a></p>
   </footer>
 
-  <!-- SCRIPT Cobertura -->
+  <!-- Barra fixa mobile -->
+  <div class="mobile-cta">
+    <strong>Instale a GalizaNET hoje</strong>
+    <a class="btn" href="#assine">Assinar</a>
+  </div>
+
+  <!-- JS: Carrossel + Cobertura -->
   <script>
-    // Lista oficial de cidades com fibra
+    /* ===== CARROSSEL ===== */
+    const slides = document.getElementById('slides');
+    const dotsWrap = document.getElementById('dots');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const total = slides.children.length;
+    let current = 0, timer;
+
+    function go(i){
+      current = (i + total) % total;
+      slides.style.transform = `translateX(-${current*100}%)`;
+      [...dotsWrap.children].forEach((d,idx)=>d.classList.toggle('active', idx===current));
+      resetAuto();
+    }
+    function buildDots(){
+      for(let i=0;i<total;i++){
+        const d = document.createElement('button');
+        d.className = 'dot' + (i===0?' active':'');
+        d.addEventListener('click', ()=>go(i));
+        dotsWrap.appendChild(d);
+      }
+    }
+    function resetAuto(){
+      clearInterval(timer);
+      timer = setInterval(()=>go(current+1), 6000);
+    }
+    prev.addEventListener('click', ()=>go(current-1));
+    next.addEventListener('click', ()=>go(current+1));
+    buildDots(); resetAuto();
+
+    /* ===== COBERTURA ===== */
     const cities = [
       "Irecê, Bahia",
       "Lapão, Bahia",
@@ -240,57 +360,41 @@
       "Presidente Dutra, Bahia",
       "Aguada Nova de Lapão, Bahia"
     ];
-
     const chipsWrap = document.getElementById('chips');
     const mapFrame  = document.getElementById('map');
     const statusEl  = document.getElementById('status');
     const ctaCidade = document.getElementById('ctaCidade');
     const searchInp = document.getElementById('citySearch');
-
     let active = null;
 
     function gmapsSrc(city){
-      // usa uma busca simples no Google Maps para manter leve no GitHub Pages
       const q = encodeURIComponent(city);
       return `https://www.google.com/maps?q=${q}&z=12&output=embed`;
     }
-
     function setActive(city){
       active = city;
-      // atualiza chips
-      [...chipsWrap.querySelectorAll('.chip')].forEach(ch => {
-        ch.classList.toggle('active', ch.dataset.city === city);
-      });
-      // atualiza mapa e status
+      [...chipsWrap.querySelectorAll('.chip')].forEach(ch => ch.classList.toggle('active', ch.dataset.city === city));
       mapFrame.src = gmapsSrc(city);
       statusEl.style.display = 'inline-flex';
       statusEl.innerHTML = `🟢 Fibra disponível em <strong>${city.replace(', Bahia','/BA')}</strong>`;
-      // atualiza CTA com utm simples
-      ctaCidade.href = `https://www.galizanet.com.br/?utm_source=site&utm_medium=cobertura&utm_campaign=${encodeURIComponent(city)}`;
+      ctaCidade.href = `#assine`;
     }
-
     function renderChips(list){
       chipsWrap.innerHTML = '';
       list.forEach(city => {
         const b = document.createElement('button');
-        b.className = 'chip';
-        b.type = 'button';
-        b.dataset.city = city;
-        b.textContent = city.replace(', Bahia','/BA');
+        b.className = 'chip'; b.type = 'button';
+        b.dataset.city = city; b.textContent = city.replace(', Bahia','/BA');
         b.addEventListener('click', () => setActive(city));
         chipsWrap.appendChild(b);
       });
     }
-
-    // busca
-    searchInp.addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-      const filtered = cities.filter(c => c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(term));
+    document.getElementById('citySearch').addEventListener('input', (e) => {
+      const t = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      const filtered = cities.filter(c => c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(t));
       renderChips(filtered);
       if(filtered.length && !filtered.includes(active)) setActive(filtered[0]);
     });
-
-    // inicialização
     renderChips(cities);
     setActive(cities[0]);
   </script>
