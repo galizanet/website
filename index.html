@@ -25,10 +25,21 @@
       background:repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 1px, transparent 1px 14px),
                  repeating-linear-gradient(65deg, rgba(255,255,255,.04) 0 1px, transparent 1px 18px);
       pointer-events:none; mix-blend-mode:screen;}
+
     .nav{position:sticky; top:0; z-index:20; backdrop-filter:saturate(1.2) blur(8px);
       background:rgba(10,31,68,.65); border-bottom:1px solid rgba(255,255,255,.12);}
     .nav .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 16px}
-    .nav img{width:160px}
+    .logo-nav, .logo-hero {
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.9))
+              drop-shadow(0 0 6px rgba(255,255,255,0.6));
+    }
+    .logo-nav { width: 180px; height: auto; }
+    .logo-hero { width: 260px; height: auto; margin-bottom: 14px; }
+    @media (min-width: 1024px){
+      .logo-nav { width: 200px; }
+      .logo-hero { width: 320px; }
+    }
+
     .nav .cta{display:flex; gap:10px}
     .btn, .btn-outline{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:800; letter-spacing:.3px; transition:.2s ease; white-space:nowrap}
     .btn{background:var(--secondary); color:#fff; box-shadow:0 6px 18px rgba(255,102,0,.35)}
@@ -81,7 +92,23 @@
     .searchbox input{border:0; outline:0; background:transparent; flex:1; font-size:15px; color:var(--primary)}
     .availability{display:flex; align-items:center; gap:8px; font-weight:800; color:#19733b; background:#e6f5ec; padding:8px 12px; border-radius:8px; width:max-content; margin-top:12px; border:1px solid #cdebd8}
 
-    /* Trust */
+    /* Mascote painel direito */
+    .mascot-wrap{position:relative; display:grid; grid-template-columns:1fr; place-items:center; padding-top:20px}
+    .mascot-img{max-width:320px; width:100%; height:auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.12))}
+    .mascot-bubble{
+      position:relative; background:#ffffff; border:2px solid #ffe1d0;
+      box-shadow:var(--shadow); border-radius:14px; padding:14px; margin-bottom:12px;
+    }
+    .mascot-bubble .tail{
+      position:absolute; bottom:-12px; left:28px; width:0; height:0;
+      border-left:12px solid transparent; border-right:12px solid transparent;
+      border-top:12px solid #ffffff;
+      filter: drop-shadow(0 -2px 0 #ffe1d0);
+    }
+    .mascot-bubble p{margin:0 0 10px 0; color:var(--primary)}
+    .mascot-actions{display:flex; gap:10px; flex-wrap:wrap}
+
+    /* Testimonials & trust */
     .testimonials blockquote{background:#fff; border-left:5px solid var(--secondary); padding:14px 16px; border-radius:8px; font-style:italic}
     .testimonials span{display:block; margin-top:6px; font-weight:800; color:var(--primary)}
     .trust-logos{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:18px; align-items:center; justify-items:center}
@@ -104,13 +131,21 @@
     .tip{font-size:12px; color:var(--gray)}
 
     /* FOOTER & mobile CTA */
-    footer{background:var(--primary); color:#fff; text-align:center; padding:22px; margin-top:40px}
-    footer a{color:#ffd2b0; font-weight:800}
+    footer{background:#fff; color:var(--primary); text-align:center; padding:22px; margin-top:40px; border-top:1px solid #edf1f6}
+    footer a{color:var(--secondary); font-weight:800}
     .mobile-cta{position:fixed; bottom:0; left:0; right:0; z-index:30;
       background:linear-gradient(90deg,var(--secondary),#ff7e1f); color:#fff; display:none; align-items:center; justify-content:space-between; gap:8px;
       padding:10px 14px; box-shadow:0 -8px 24px rgba(0,0,0,.12)}
     .mobile-cta strong{font-size:15px}
     .mobile-cta .btn{background:#fff; color:#e25400; box-shadow:none}
+
+    /* Mascote flutuante (mobile) */
+    .floating-mascot{
+      position:fixed; right:14px; bottom:82px; z-index:35; display:none;
+      align-items:center; gap:8px; padding:8px 10px; background:#fff; border:2px solid #ffe1d0;
+      border-radius:999px; box-shadow:var(--shadow); color:var(--secondary); font-weight:800;
+    }
+    .floating-mascot img{width:44px; height:auto; display:block}
 
     @media (max-width:980px){
       .hero .content{grid-template-columns:1fr}
@@ -118,42 +153,8 @@
       .slide{height:320px}
       .lead form{grid-template-columns:1fr}
       .mobile-cta{display:flex}
+      .floating-mascot{display:flex}
     }
-    /* Logos com contorno/sombra para contraste */
-    .logo-nav, .logo-hero {
-      filter: drop-shadow(0 0 3px rgba(255,255,255,0.9))
-              drop-shadow(0 0 6px rgba(255,255,255,0.6));
-    }
-
-    .logo-nav { width: 180px; height: auto; }
-    .logo-hero { width: 260px; height: auto; margin-bottom: 14px; }
-
-    @media (min-width: 1024px){
-      .logo-nav { width: 200px; }
-      .logo-hero { width: 320px; }
-    }
-    .mascot-wrap{position:relative; display:grid; grid-template-columns:1fr; place-items:center; padding-top:20px}
-    .mascot-img{max-width:320px; width:100%; height:auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.12))}
-    .mascot-bubble{
-      position:relative; background:#ffffff; border:2px solid #ffe1d0;
-      box-shadow:var(--shadow); border-radius:14px; padding:14px; margin-bottom:12px;
-    }
-    .mascot-bubble .tail{
-      position:absolute; bottom:-12px; left:28px; width:0; height:0;
-      border-left:12px solid transparent; border-right:12px solid transparent;
-      border-top:12px solid #ffffff;
-      filter: drop-shadow(0 -2px 0 #ffe1d0);
-    }
-    .mascot-bubble p{margin:0 0 10px 0; color:var(--primary)}
-    .mascot-actions{display:flex; gap:10px; flex-wrap:wrap}
-
-    .floating-mascot{
-    position:fixed; right:14px; bottom:82px; z-index:35; display:none;
-    align-items:center; gap:8px; padding:8px 10px; background:#fff; border:2px solid #ffe1d0;
-    border-radius:999px; box-shadow:var(--shadow); color:var(--secondary); font-weight:800;
-  }
-  .floating-mascot img{width:44px; height:auto; display:block}
-  @media (max-width:980px){ .floating-mascot{display:flex} }
   </style>
 </head>
 <body>
@@ -224,23 +225,22 @@
   <!-- BENEFÍCIOS + PLANOS -->
   <main class="wrap">
     <section class="grid grid-3" aria-label="beneficios">
+      <!-- (imagens dos cards podem ser adicionadas via <picture> como orientado anteriormente) -->
       <div class="card">
-        <img src="imagens/internet-residencial.png" alt="Família feliz assistindo filmes e séries com Wi-Fi estável" style="border-radius:10px; margin-bottom:10px;">
         <h3>🌐 Internet Residencial</h3>
         <p class="muted">Wi-Fi potente para toda a casa, estabilidade e velocidade para a família.</p>
       </div>
       <div class="card">
-          <img src="imagens/empresarial-governo.png" alt="Profissionais em reunião conectados com redes confiáveis" style="border-radius:10px; margin-bottom:10px;">
         <h3>🏢 Empresarial & Governo</h3>
         <p class="muted">Conectividade confiável para operações críticas. Redes privadas quando precisar.</p>
       </div>
       <div class="card">
-          <img src="imagens/muito-mais-que-internet.png" alt="Família aproveitando streaming e telemedicina" style="border-radius:10px; margin-bottom:10px;">
         <h3>📺 Muito mais que Internet</h3>
         <p class="muted">Pacotes com HBO Max, Paramount e telemedicina com <strong>Mediquo</strong>.</p>
       </div>
+
       <div class="card" style="grid-column:1/-1; display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center">
-        <img src="imagens/planos.jpg" alt="Planos de internet" style="border-radius:10px">
+        <img src="imagens/planos-internet.png" alt="Planos de internet" style="border-radius:10px">
         <div>
           <h3>⚡ Ultra velocidades</h3>
           <p class="muted">Nossos planos garantem a rapidez que você precisa no acesso — do básico ao turbo. Escolha o ideal e comece hoje.</p>
@@ -271,14 +271,14 @@
 
             <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
               <a id="ctaCidade" class="btn" href="#assine">Quero instalar</a>
-              <a id="ctaWhats" class="btn-ghost" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+              <a id="ctaWhats" class="btn-ghost" href="#" target="_blank" rel="noopener">💬 Fale agora no WhatsApp</a>
             </div>
           </div>
 
           <iframe id="map" class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de cobertura"></iframe>
         </div>
 
-        <!-- Painel do mascote (substitui o painel de resumo) -->
+        <!-- Painel do mascote (substitui o resumo) -->
         <div class="panel">
           <div class="inner mascot-wrap">
             <div class="mascot-bubble">
@@ -296,6 +296,7 @@
             <img src="imagens/mascote-roteador.jpeg" alt="Mascote GalizaNET com roteador" class="mascot-img">
           </div>
         </div>
+      </div>
     </section>
 
     <!-- TESTEMUNHOS -->
@@ -321,10 +322,12 @@
     <section class="trust">
       <h2 style="text-align:center; margin-bottom:12px;">Confiança e Qualidade</h2>
       <div class="trust-logos">
-        <img src="imagens/anatel.png" alt="Anatel">
+        <img src="imagens/abrint-logo.png" alt="Empresa Associada ABRINT">
+        <img src="imagens/anatel-logo.png" alt="Empresa Autorizada Anatel">
         <img src="imagens/hbomax.png" alt="HBO Max">
         <img src="imagens/paramount.png" alt="Paramount">
         <img src="imagens/mediquo.png" alt="Mediquo">
+        <img src="imagens/watch-logo.png" alt="Watch Brasil">
       </div>
     </section>
 
@@ -338,7 +341,7 @@
       </div>
     </section>
 
-    <!-- FORMULÁRIO DE INTERESSE (SEM BACKEND) -->
+    <!-- FORMULÁRIO DE INTERESSE -->
     <section class="lead" aria-labelledby="lead-title">
       <h2 id="lead-title" style="margin-bottom:8px;">Fale com a gente 💬</h2>
       <p class="muted" style="margin-bottom:14px">Preencha seus dados para receber uma proposta. Não enviamos spam.</p>
@@ -394,11 +397,17 @@
     <a class="btn" href="#assine">Assinar</a>
   </div>
 
-  <!-- JS: Carrossel + Cobertura + WhatsApp + Leads -->
+  <!-- Mascote flutuante (mobile) -->
+  <a href="#" id="floatWhats" class="floating-mascot" aria-label="Falar no WhatsApp">
+    <img src="imagens/mascote-cabos.jpeg" alt="">
+    <span>Falar no Whats</span>
+  </a>
+
+  <!-- JS: Carrossel + Cobertura + WhatsApp + Leads + Mascote -->
   <script>
     /* ===== CONFIGURAÇÕES ===== */
-    const whatsNumber = "5574999999999"; // <- SUBSTITUA pelo WhatsApp oficial (código do país + DDD + número)
-    const leadEmail   = "vendas@galizanet.com.br"; // <- SUBSTITUA pelo e-mail que receberá leads
+    const whatsNumber = "+5574999799443";
+    const leadEmail   = "contato@galizanet.com.br";
 
     /* ===== CARROSSEL ===== */
     const slides = document.getElementById('slides');
@@ -431,6 +440,10 @@
     const ctaCidade  = document.getElementById('ctaCidade');
     const ctaWhats   = document.getElementById('ctaWhats');
     const searchInp  = document.getElementById('citySearch');
+    const floatWhats = document.getElementById('floatWhats');
+    const mascoteCidade = document.getElementById('mascoteCidade');
+    const mascoteWhats  = document.getElementById('mascoteWhats');
+
     let active = null;
 
     function gmapsSrc(city){ return `https://www.google.com/maps?q=${encodeURIComponent(city)}&z=12&output=embed`; }
@@ -438,6 +451,7 @@
       const text = `Olá, tenho interesse em assinar a GalizaNET em ${city.replace(', Bahia','/BA')}. ${extra}`.trim();
       return `https://wa.me/${whatsNumber}?text=${encodeURIComponent(text)}`;
     }
+
     function setActive(city){
       active = city;
       [...chipsWrap.querySelectorAll('.chip')].forEach(ch => ch.classList.toggle('active', ch.dataset.city === city));
@@ -446,7 +460,13 @@
       statusEl.innerHTML = `🟢 Fibra disponível em <strong>${city.replace(', Bahia','/BA')}</strong>`;
       ctaCidade.href = "#assine";
       ctaWhats.href  = waLink(city);
+
+      // Mascote fala a cidade e atualiza Whats
+      const cidadeFmt = city.replace(', Bahia','/BA');
+      if (mascoteCidade) mascoteCidade.textContent = cidadeFmt;
+      if (mascoteWhats)  mascoteWhats.href = waLink(city, 'Quero saber planos e instalação.');
     }
+
     function renderChips(list){
       chipsWrap.innerHTML = '';
       list.forEach(city => {
@@ -457,21 +477,32 @@
         chipsWrap.appendChild(b);
       });
     }
+
     searchInp.addEventListener('input', (e) => {
       const t = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
       const filtered = cities.filter(c => c.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').includes(t));
       renderChips(filtered);
       if(filtered.length && !filtered.includes(active)) setActive(filtered[0]);
     });
+
+    // inicialização
     renderChips(cities);
     setActive(cities[0]);
 
-    /* ===== FORM LEADS (sem backend) ===== */
+    // Mascote flutuante (abre Whats da cidade ativa)
+    if (floatWhats){
+      floatWhats.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const link = waLink(active || cities[0], 'Olá! Vim pelo site. Posso falar com um atendente?');
+        window.open(link, '_blank', 'noopener');
+      });
+    }
+
+    /* ===== FORM LEADS ===== */
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', (e)=>{
       e.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
-      // validação simples
       if(!data.nome || !data.telefone || !data.cidade){
         alert("Preencha Nome, Telefone e Cidade.");
         return;
@@ -487,11 +518,9 @@
         `Mensagem: ${data.mensagem||'-'}`,
         `Data/Hora: ${now}`
       ].join('%0D%0A');
-
-      // 1) Abre e-mail pronto (mailto)
+      // abre email
       window.location.href = `mailto:${encodeURIComponent(leadEmail)}?subject=${encodeURIComponent(assunto)}&body=${corpo}`;
-
-      // 2) Baixa CSV local com o lead
+      // baixa CSV local
       const headers = ['timestamp','nome','telefone','email','cidade','plano','mensagem'];
       const values  = [now, data.nome, data.telefone, data.email||'', data.cidade, data.plano||'', (data.mensagem||'').replace(/\n/g,' ') ];
       const csv = headers.join(',') + '\n' + values.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',');
@@ -500,50 +529,10 @@
       a.href = URL.createObjectURL(blob);
       a.download = `lead-galizanet-${Date.now()}.csv`;
       document.body.appendChild(a); a.click(); a.remove();
-
-      // 3) Copia para área de transferência (opcional)
       navigator.clipboard?.writeText(decodeURIComponent(corpo.replace(/%0D%0A/g,'\n')));
-
-      // 4) Opcional: abrir WhatsApp com resumo
-      // window.open(waLink(data.cidade, `Meu nome é ${data.nome}. Telefone: ${data.telefone}. Plano: ${data.plano||'-'}.`), '_blank');
-
-      form.reset();
-      document.getElementById('cidade').value = ''; // reseta select cidade
+      form.reset(); document.getElementById('cidade').value = '';
       alert("Obrigado! Seu interesse foi enviado.");
     });
-
-    // referências do mascote
-    const mascoteCidade = document.getElementById('mascoteCidade');
-    const mascoteWhats  = document.getElementById('mascoteWhats');
-
-    function setActive(city){
-      active = city;
-      [...chipsWrap.querySelectorAll('.chip')].forEach(ch => ch.classList.toggle('active', ch.dataset.city === city));
-      mapFrame.src = gmapsSrc(city);
-      statusEl.style.display = 'inline-flex';
-      statusEl.innerHTML = `🟢 Fibra disponível em <strong>${city.replace(', Bahia','/BA')}</strong>`;
-      ctaCidade.href = "#assine";
-      ctaWhats.href  = waLink(city);
-
-      // Mascote fala a cidade e o WhatsApp já vem pronto
-      const cidadeFmt = city.replace(', Bahia','/BA');
-      if (mascoteCidade) mascoteCidade.textContent = cidadeFmt;
-      if (mascoteWhats)  mascoteWhats.href = waLink(city, 'Quero saber planos e instalação.');
-    }
-
-    const floatWhats = document.getElementById('floatWhats');
-    if (floatWhats){
-      floatWhats.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const link = waLink(active || cities[0], 'Olá! Vim pelo site. Posso falar com um atendente?');
-        window.open(link, '_blank', 'noopener');
-      });
-    }
-
   </script>
-  <a href="#" id="floatWhats" class="floating-mascot" aria-label="Falar no WhatsApp">
-  <img src="imagens/mascote-cabos.png" alt="" />
-  <span>Falar no Whats</span>
-</a>
 </body>
 </html>
